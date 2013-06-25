@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping  >
+	<class name="com.cn.bean.user" >
+		<id name="id" >
+			<generator class="identity"/>
+		</id>
+		<property name="name" />
+		<property name="password"></property>
+	  <set name="power" inverse="false"  cascade="all-delete-orphan" table="authorityUser" >
+	  <key column="user_id"></key>
+	 <one-to-many class="com.cn.bean.authority"></one-to-many>
+	</set>
+	</class>
+</hibernate-mapping>
